@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ article.title }}</title>
+          {% include 'bootstrap.html' %}
+      </head>
+      <body>
+          {% include 'nav.html' %}
+          {% include 'banner.html' %}
+          <h1>{{ article.title }}</h1>
+          <p>{{ article.content }}</p>
+        <div class="container"></div>
+          <h1 class="text-center mt-2 mb-4"></h1>
+            Datavica
+          <a href="{{ url_for('home') }}">Back to Home</a>
+        </body>
+      </html>

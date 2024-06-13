@@ -1,0 +1,17 @@
+<div class="container mt-4">
+    {% for service in services %}
+    <div class="border-bottom row mb-4 pb-2">
+        <div class="col-10">
+            <h4 style="color:rgb(120,120,120); margin-bottom:4px;">
+                {{ service.title }}
+            </h4>
+            <div>
+                <b>title:</b> {{ service.content }}
+            </div>
+        </div>
+        <div class="col-2 text-right">
+            <a href="{{ url_for('article', article_id=service.id) }}" class="btn btn-outline-primary">Learn more</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>

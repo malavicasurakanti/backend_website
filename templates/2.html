@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Datavica</title>
+       {% include 'bootstrap.html' %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS to make "Learn more" links black */
+        .learn-more-link {
+            color: black !important;
+            text-decoration: none !important; /* Remove underline if you prefer */
+        }
+        .learn-more-link:hover {
+            text-decoration: underline !important; /* Add underline on hover if needed */
+        }
+    </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for rectangular containers with rounded edges */
+        .card-custom {
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            margin: 20px;
+        }
+        .bg-orange {
+            background-color: #f5e8de; /* Orange color from image */
+        }
+        .bg-blue {
+            background-color: #b3d1ff; /* Blue color from image */
+        }
+        .bg-pink {
+            background-color: #ffb3d9; /* Pink color from image */
+        }
+        .learn-more-link {
+            color: white !important;
+            text-decoration: underline !important;
+        }
+      .newsletter-section {
+          text-align: center;
+          margin: 40px 0;
+      }
+      .newsletter-input {
+          max-width: 500px;
+          margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    {% include 'nav.html' %}
+    {% include 'banner.html' %}
+      <h1 class="text-center mt-2 mb-4">
+        {{company_name}} Datavica
+      </h1>
+      <div class="row" style="margin-bottom:32px">
+        <div class="col-md-6">
+      <p class="lead" id = "text">
+        At Jovian, we’re on a mission to build the most highly reputed technical university in the world, and we’re building it completely online. Our flagship data science program helps working professionals with a background in programming or analytics make a career transition to data science. We also offer several free beginner-friendly courses and have a fast-growing community of 200,000+ users.
+      </p>
+        </div>
+        <div class="d-none d-md-block col-md-6">
+        <img src="https://4148ee8d-c0a6-48db-a79d-9c6d204ea14b-00-i5vnonigwi2z.picard.replit.dev/static/abstract.jpg" style="height:320px;border-radius:4px;">
+        </div>
+      </div>
+      <h2 class="text-center mt-2 mb-4">Truth is out there</h2
+       <div class="mt-5"></div>
+      <div class="row mt-5">
+          <div class="col-md-4">
+                  <div class="card card-custom bg-orange text-center">
+                       <h2>Articles</h2>
+                        <p>
+                            Some introductory content for the first column.
+                            <br>
+                            <a href="/learn-more-1" class="learn-more-link">Learn more &gt;&gt;</a>
+                    
+                      </p>
+                  </div>
+               </div> 
+              <div class="col-md-4">
+                  <div class="card card-custom bg-blue text-center">
+                      <h2>Automation</h2>
+                      <p>
+                          Some introductory content for the second column.
+                          <br>
+                          <a href="/learn-more-2" class="learn-more-link">Learn more &gt;&gt;</a>
+                      </p>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card card-custom bg-pink text-center">
+                      <h2>Portfolio Projects</h2>
+                      <p>
+                          Some introductory content for the third column.
+                          <br>
+                          <a href="/learn-more-3" class="learn-more-link">Learn more &gt;&gt;</a>
+                      </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+      <div class="newsletter-section">
+              <h1>Subscribe to our Newsletter</h1>
+              <form class="newsletter-input">
+                  <div class="input-group mb-3">
+                      <input type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="button-addon2">
+                      <div class="input-group-append">
+                          <button class="btn btn-primary" type="button" id="button-addon2">Subscribe</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+          <div>
+              {% for service in services %}
+            
+                      <h4>{{ service.title }}</h4>
+                      <a href="{{ url_for('article', article_id=service.id) }}">Learn More</a>
+              {% endfor %}
+        </div>
+
+      
+         <div class="mt-5"></div>
+      <div class="text-center">
+     <button>Contact Us</button>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
