@@ -24,19 +24,6 @@ SERVICES = [
 def home():
     return render_template('home.html', services=SERVICES, slogan='quote')
 
-@app.route('/publish', methods=['POST'])
-def publish():
-    data = request.json
-    title = data['title']
-    tags = data['tags']
-    content = data['content']
-
-    with engine.connect() as connection:
-        connection.execute(
-            text("INSERT INTO articles (title, tags, content) VALUES (:title, :tags, :content)"),
-            {"title": title, "tags": tags, "content": content}
-        )
-    return jsonify({"message": "Article received successfully"}), 200
 
 @app.route("/api/services")
 def list_services():
