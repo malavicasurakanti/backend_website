@@ -1,17 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ article.title }}</title>
-          {% include 'bootstrap.html' %}
-      </head>
-      <body>
-          {% include 'nav.html' %}
-          {% include 'banner.html' %}
-          <h1>{{ article.title }}</h1>
-          <p>{{ article.content }}</p>
-        <div class="container"></div>
-          <h1 class="text-center mt-2 mb-4"></h1>
-            Datavica
-          <a href="{{ url_for('home') }}">Back to Home</a>
-        </body>
-      </html>
+<head>
+    <title>Articles - Datavica</title>
+    {% include 'bootstrap.html' %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #dadada;
+
+        }
+        .article-row {
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            margin: 20px 0;
+            background-color: #0F0E0D;
+            position: relative;
+        }
+        .article-row img {
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .article-row .learn-more-link {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .article-row .learn-more-link:hover {
+            text-decoration: underline !important;
+        }
+        .btn-custom {
+            background-color: #E85500;
+            border: none;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #cc4400;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        {% include 'nav.html' %}
+        <div class="banner">
+        {% include 'banner.html' %}
+        </div>
+
+            <div class="container">
+                <h1 class="text-center mt-2 mb-4">Articles</h1>
+
+                <!-- Loop through articles -->
+                {% for article in articles %}
+                <div class="article-row d-flex align-items-start">
+                    <img src="{{ article.image_url }}" alt="Article Image">
+                    <div>
+                        <h2>{{ article.title }}</h2>
+                        <p>{{ article.summary }}</p>
+                        <a href="{{ url_for('article_detail', article_id=article.id) }}" class="learn-more-link">Learn more &gt;&gt;</a>
+                    </div>
+                </div>
+                {% endfor %}
+        <a href="#" class="btn btn-custom mt-4">Back to Home</a>
+    </div>
+        <div>
+{% include 'footer.html'%}
+            </div>
+    <!-- Include JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

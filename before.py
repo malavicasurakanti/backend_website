@@ -34,12 +34,6 @@ def publish():
     title = data['title']
     tags = data['tags']
     content = data['content']
-
-    with engine.connect() as connection:
-        connection.execute(
-            text("INSERT INTO articles (title, tags, content) VALUES (:title, :tags, :content)"),
-            {"title": title, "tags": tags, "content": content}
-        )
     return jsonify({"message": "Article received successfully"}), 200
 
 @app.route("/api/services")

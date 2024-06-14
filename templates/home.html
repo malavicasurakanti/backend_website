@@ -4,92 +4,202 @@
     <title>Datavica</title>
     {% include 'bootstrap.html' %}
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        .learn-more-link {
-            color: black !important;
-            text-decoration: none !important;
+        body {
+            background-color: #dadada;
+            
         }
-        .learn-more-link:hover {
-            text-decoration: underline !important;
+
+        .text {
+            font-family: 'Jost', sans-serif;
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+            text-align: left;
+            max-width: 100%;
         }
+
+        .text h2 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .text p {
+            margin-bottom: 15px;
+        }
+        .text u {
+            list-style-type: disc;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        } 
         .card-custom {
             border-radius: 20px;
             padding: 20px;
             color: white;
             margin: 20px;
+            text-align: right; 
+            position: absolute;
+            max-width: 300px;
+            width: 400px;
+            position: relative;
+            background-color: #0F0E0D;
+            padding-bottom: 70px;
         }
-        .bg-orange { background-color: #f5e8de; }
-        .bg-blue { background-color: #b3d1ff; }
-        .bg-pink { background-color: #ffb3d9; }
-        .newsletter-section {
-            text-align: center;
-            margin: 40px 0;
+        .card-custom img {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            border-radius: 10px;
         }
-        .newsletter-input {
-            max-width: 500px;
-            margin: 0 auto;
+       
+        .card-custom h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
         }
+        .card-custom p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .learn-more-link {
+            color: white;
+            text-decoration: none;
+            position: absolute;
+            bottom: 20px;
+            left: 130px;
+        }
+        .learn-more-link:hover {
+            text-decoration: underline !important;
+            color: #A8592B;
+        }
+        .banner {
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .subscription-form {
+                background-color: #0F0E0D;
+                padding: 50px;
+                border-radius: 50px;
+                color: white;
+                text-align: center;
+                max-width: 600px;
+                width: 100%;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+                }
+                .subscription-form h2 {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+                .subscription-form p {
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                }
+                .subscription-form input[type="email"] {
+                    padding: 10px;
+                    border-radius: 20px 0 0 20px;
+                    border: none;
+                }
+                .subscription-form button {
+                    background-color: #E56812;
+                    border: none;
+                    padding: 10px;
+                    border-radius: 0 20px 20px 0;
+                }
+                .subscription-form button i {
+                    color: white;
+                }
+                .subscription-form small {
+                    display: block;
+                    margin-top: 10px;
+                    color: #ccc;
+                }
+                .subscription-form small a {
+                    color: #ccc;
+                    text-decoration: underline;
+                }
+        
     </style>
+
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid p-0">
         {% include 'nav.html' %}
+        <div class="banner">
         {% include 'banner.html' %}
-        <h1 class="text-center mt-2 mb-4">{{ company_name }} Datavica</h1>
-        <div class="row" style="margin-bottom:32px">
-            <div class="col-md-6">
-                <p class="lead" id="text">
-                    At Jovian, we’re on a mission to build the most highly reputed technical university in the world, and we’re building it completely online. Our flagship data science program helps working professionals with a background in programming or analytics make a career transition to data science. We also offer several free beginner-friendly courses and have a fast-growing community of 200,000+ users.
-                </p>
+        </div></br>
+        <div class="container">
+            <div class="text" id="text">
+                <h1> Hi there, I am Malavica,I love to read & I love Data</h1></br>
+           
+                    <h2>Why Stay Updated with Tech Trends?</h2></br>
+                       <p> In today's age of information overload, it's challenging to discern the truth from the noise. As Mark Twain wisely said, "If you don't read the newspaper, you're uninformed. If you do read the newspaper, you're misinformed." This is especially true in our AI-driven world. To read and stay updated, you need a lot of resources that tie directly to practical use cases. My mission is to help you and myself stay informed and gain in-depth knowledge of relevant and reliable tech news, fostering mutual understanding and clarity. </p> </br>
+
+                     <h2>What Can You Find Here?</h2></br>
+                     <ul>
+                         <li>Tech News & Updates</li>
+                         <li>In-Depth Reviews</li>
+                         <li>Automated Templates</li>
+                         <li>Practical Tips</li>
+                         <li>Portfolio Ideas</li>
+                     </ul></br>
+
+
+                        <h2>How Will This Blog Make Difference?</h2></br>
+                        By sifting through the vast sea of information, I bring you insights that are not only informative but also trustworthy. My goal is to make technology accessible and understandable for everyone, whether you're a fellow tech lover, a professional in data science, or just someone curious about AI, data engineering, multitasking productivity, and portfolio development. All resources provided are tied directly to practical use cases to ensure you can apply what you learn effectively.
+                    </p></br>
+        <div class="container">
+            <div class="card-custom">
+                <img src="https://4148ee8d-c0a6-48db-a79d-9c6d204ea14b-00-i5vnonigwi2z.picard.replit.dev/static/article.png" alt="Placeholder Image">
+                <h2>Article</h2>
+                <p>Stay current with the latest advancements and trends in AI, large language models (LLMs), and data science</p></br>
+                <a href="{{ url_for('article', article_id=1) }}" class="learn-more-link">Learn more&rarr;</a>
             </div>
-            <div class="d-none d-md-block col-md-6">
-                <img src="https://4148ee8d-c0a6-48db-a79d-9c6d204ea14b-00-i5vnonigwi2z.picard.replit.dev/static/abstract.jpg" style="height:320px;border-radius:4px;">
+            <div class="card-custom">
+                <img src="https://via.placeholder.com/400x200" alt="Placeholder Image">
+                <h2>Automation</h2>
+                <p>Ready-to use templates designed to enhance efficiency for anyone looking to boost productivity through multitasking.</p></br>
+                <a href="{{ url_for('article', article_id=2) }}" class="learn-more-link">Learn more&rarr;</a>
             </div>
-        </div>
-        <h2 class="text-center mt-2 mb-4">Truth is out there</h2>
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <div class="card card-custom bg-orange text-center">
-                    <h2>Articles</h2>
-                    <p>
-                        Some introductory content for the first column.
-                        <br>
-                        <a href="{{ url_for('article', article_id=1) }}" class="learn-more-link">Learn more &gt;&gt;</a>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card card-custom bg-blue text-center">
-                    <h2>Automation</h2>
-                    <p>
-                        Some introductory content for the second column.
-                        <br>
-                        <a href="{{ url_for('article', article_id=2) }}" class="learn-more-link">Learn more &gt;&gt;</a>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card card-custom bg-pink text-center">
-                    <h2>Portfolio Projects</h2>
-                    <p>
-                        Some introductory content for the third column.
-                        <br>
-                        <a href="{{ url_for('article', article_id=3) }}" class="learn-more-link">Learn more &gt;&gt;</a>
-                    </p>
-                </div>
+            <div class="card-custom">
+                <img src="https://via.placeholder.com/400x200" alt="Placeholder Image">
+                <h2>Portfolio ideas</h2>
+                <p>Innovative concepts to enhance your professional portfolio and showcase your tech skills effectively.</p></br>
+                <a href="{{ url_for('article', article_id=3) }}" class="learn-more-link">Learn more &rarr;</a>
             </div>
         </div>
-        <div class="newsletter-section">
-            <h1>Subscribe to our Newsletter</h1>
-            <form class="newsletter-input">
-                <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="button-addon2">Subscribe</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+         <div class="row justify-content-center mt-5">
+       <div class="col-md-4">
+           <div class="text-center">
+        {% include 'subscription.html' %}
+           </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+<div class="row justify-content-center mt-5">
+<div class="col-md-4">
         <div class="text-center">
             <button>Contact Us</button>
         </div>
@@ -98,5 +208,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+</body></html>
+
