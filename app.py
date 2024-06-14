@@ -24,10 +24,6 @@ SERVICES = [
 def home():
     return render_template('home.html', services=SERVICES, slogan='quote')
 
-@app.route('/owner')
-def owner():
-    return render_template('owner.html')
-
 @app.route('/publish', methods=['POST'])
 def publish():
     data = request.json
