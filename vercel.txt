@@ -1,0 +1,9 @@
+Vercel CLI 34.2.7
+? Set up and deploy “~/backendwebsite”? [Y/n] y
+? Which scope do you want to deploy to? My Personal Account
+? Link to existing project? [y/N] n
+? What’s your project’s name? my-flask-app
+? In which directory is your code located? ./
+Auto-detected project settings (Vercel CLI 34.2.7)
+🔍  Inspect: https://vercel.com/inspect/your-unique-id
+✅  Production: https://my-flask-app.vercel.app [copied to clipboard]
