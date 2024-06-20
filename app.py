@@ -1,6 +1,9 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, flash
+from flask_mail import Mail, Message
+import os
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'  # Needed for flash messages
 
 SERVICES = [
     {
@@ -20,10 +23,30 @@ SERVICES = [
     },
 ]
 
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'your_email@gmail.com'
+app.config['MAIL_PASSWORD'] = 'your_password'
+app.config['MAIL_DEFAULT_SENDER'] = 'your_email@gmail.com'
+
+mail = Mail(app)
+
 @app.route('/')
 def home():
     return render_template('home.html', services=SERVICES, slogan='quote')
 
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    email = request.form['email']
+    msg = Message('New Subscription', recipients=['malavica.surakanti@gmail.com'])
+    msg.body = f'New subscription from: {email}'
+    try:
+        mail.send(msg)
+        flash('Thank you for subscribing!', 'success')
+    except Exception as e:
+        flash(f'An error occurred: {str(e)}', 'danger')
+    return redirect(url_for('home'))
 
 @app.route("/api/services")
 def list_services():

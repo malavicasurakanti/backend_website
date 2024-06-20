@@ -2,13 +2,24 @@
 <div class="subscription-form">
     <h2>Stay Informed</h2>
     <p>Subscribe for updates on new application, community projects, and eco-tips.</p>
-    <div class="input-group">
-        <input type="email" class="form-control" placeholder="Enter email" required>
-        <div class="input-group-append">
-            <button type="submit" class="btn">
-                <i class="fa fa-arrow-right"></i>
-            </button>
+    <form action="/subscribe" method="POST">
+                <div class="input-group">
+                    <input type="email" name="email" class="form-control" placeholder="Enter email" required>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn">
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-message">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
         </div>
     </div>
-    <small>By submitting an email you agree to our <a href="#">privacy policy</a>.</small>
-</div>

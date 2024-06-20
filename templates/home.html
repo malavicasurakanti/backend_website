@@ -5,10 +5,13 @@
     {% include 'bootstrap.html' %}
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link  rel="icon"href= "https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/favicon.ico">
     <style>
+    
         body {
-            background-color: #dadada;
-            
+            background-color: #dadada; 
         }
 
         .text {
@@ -37,45 +40,51 @@
 
         .container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-        } 
+            justify-content: space-between;
+            gap: 10px;
+            padding: 50px;
+        }
         .card-custom {
-            border-radius: 20px;
-            padding: 20px;
-            color: white;
-            margin: 20px;
-            text-align: right; 
-            position: absolute;
-            max-width: 300px;
-            width: 400px;
             position: relative;
-            background-color: #0F0E0D;
-            padding-bottom: 70px;
+            border-radius: 20px;
+            overflow: hidden;
+            color: white;
+            flex: 1;
+            max-width: calc(33.333% - 40px);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border: 2px solid #FFA500;
         }
         .card-custom img {
-            width: 70px;
-            height: 70px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+        .card-custom h2 {
             position: absolute;
-            bottom: 20px;
+            top: 20px;
             left: 20px;
+            z-index: 1;
+            padding: 10px;
             border-radius: 10px;
+            color: black;
         }
        
-        .card-custom h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
+        .card-article {
+            background-image: url('https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/Articles.png');
         }
-        .card-custom p {
-            font-size: 14px;
-            margin-bottom: 20px;
+        .card-automation {
+            background-image: url('https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/Automated Templates.png');
         }
+        .card-portfolio {
+            background-image: url('https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/project.png');
+        }
+       
         .learn-more-link {
-            color: white;
+            color: #E56812;
             text-decoration: none;
             position: absolute;
             bottom: 20px;
@@ -138,7 +147,49 @@
                     color: #ccc;
                     text-decoration: underline;
                 }
-        
+        .footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .footer-nav .nav-item {
+            list-style: none;
+            margin: 0 10px;
+        }
+        .footer-nav .nav-link {
+            text-decoration: none;
+            color: #6c757d;
+        }
+        .footer-nav .nav-link:hover {
+            color: #000;
+        }
+        .footer-text {
+            text-align: center;
+            color: #6c757d;
+        }
+        .contact-btn {
+            background-color: #E56812;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .contact-btn:hover {
+            background-color: #A8592B;
+        }
     </style>
 
 </head>
@@ -170,21 +221,21 @@
                     </p></br>
         <div class="container">
             <div class="card-custom">
-                <img src="https://4148ee8d-c0a6-48db-a79d-9c6d204ea14b-00-i5vnonigwi2z.picard.replit.dev/static/article.png" alt="Placeholder Image">
-                <h2>Article</h2>
-                <p>Stay current with the latest advancements and trends in AI, large language models (LLMs), and data science</p></br>
+                <h2>Articles</h2>
+                <img src ="https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/Articles.png" alt="Placeholder Image">
+               
                 <a href="{{ url_for('article', article_id=1) }}" class="learn-more-link">Learn more&rarr;</a>
             </div>
             <div class="card-custom">
-                <img src="https://via.placeholder.com/400x200" alt="Placeholder Image">
-                <h2>Automation</h2>
-                <p>Ready-to use templates designed to enhance efficiency for anyone looking to boost productivity through multitasking.</p></br>
+                 <h2>Templates</h2>
+                <img src="https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/Automated Templates.png" alt="Placeholder Image">
+               
                 <a href="{{ url_for('article', article_id=2) }}" class="learn-more-link">Learn more&rarr;</a>
             </div>
             <div class="card-custom">
-                <img src="https://via.placeholder.com/400x200" alt="Placeholder Image">
-                <h2>Portfolio ideas</h2>
-                <p>Innovative concepts to enhance your professional portfolio and showcase your tech skills effectively.</p></br>
+                 <h2>Project Ideas</h2>
+                <img src="https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/project.png" alt="Placeholder Image">
+
                 <a href="{{ url_for('article', article_id=3) }}" class="learn-more-link">Learn more &rarr;</a>
             </div>
         </div>
@@ -201,10 +252,11 @@
 <div class="row justify-content-center mt-5">
 <div class="col-md-4">
         <div class="text-center">
-            <button>Contact Us</button>
+            <a href="mailto:malavica.surakanti@gmail.com" class="contact-btn">Contact Me</a>
         </div>
     </div>
     {% include 'footer.html' %}
+     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
