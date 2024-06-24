@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ service.title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #dadada;
+            font-family: 'Jost', sans-serif;
+        }
+        .container {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .article-row {
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            margin: 20px 0;
+            background-color: #0F0E0D;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .article-row img {
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .article-row .learn-more-link {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .article-row .learn-more-link:hover {
+            text-decoration: underline !important;
+        }
+        .btn-custom {
+            background-color: #E85500;
+            border: none;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #cc4400;
+        }
+        .footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .footer-nav .nav-item {
+            list-style: none;
+            margin: 0 10px;
+        }
+        .footer-nav .nav-link {
+            text-decoration: none;
+            color: #6c757d;
+        }
+        .footer-nav .nav-link:hover {
+            color: #000;
+        }
+        .footer-text {
+            text-align: center;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        {% include 'nav.html' %}
+    </div>
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">{{ service.title }}</h1>
+        <p>{{ service.content }}</p>
+        <a href="{{ url_for('home') }}" class="btn btn-custom mt-4">Home</a>
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-12">
+                    {% for service in services %}
+                    <div class="article-row">
+                        <img src="{{ service.image_url }}" alt="{{ service.title }} Image">
+                        <div>
+                            <h4 style="color:rgb(120,120,120); margin-bottom:4px;">
+                                {{ service.title }}
+                            </h4>
+                            <div>
+                                <b>Content:</b> {{ service.content }}
+                            </div>
+                            <a href="{{ url_for('service', service_id=service.id) }}" class="learn-more-link">Learn more &rarr;</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

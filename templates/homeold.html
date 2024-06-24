@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Datavica</title>
+    {% include 'bootstrap.html' %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link  rel="icon"href= "https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/favicon.ico">
+    <style>
+    
+        body {
+            background-color: #dadada; 
+        }
+
+        .text {
+            font-family: 'Jost', sans-serif;
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+            text-align: left;
+            max-width: 100%;
+        }
+
+        .text h2 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .text p {
+            margin-bottom: 15px;
+        }
+        .text u {
+            list-style-type: disc;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 50px;
+        }
+        .card-custom {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            color: white;
+            flex: 1;
+            max-width: calc(33.333% - 40px);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border: 2px solid #FFA500;
+        }
+        .card-custom img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+        .card-custom h2 {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+            padding: 10px;
+            border-radius: 10px;
+            color: black;
+        }
+       
+        .card-article {
+            background-image: url('https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/Articles.png');
+        }
+        .card-automation {
+            background-image: url('https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/Automated Templates.png');
+        }
+        .card-portfolio {
+            background-image: url('https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/project.png');
+        }
+       
+        .learn-more-link {
+            color: #E56812;
+            text-decoration: none;
+            position: absolute;
+            bottom: 20px;
+            left: 130px;
+        }
+        .learn-more-link:hover {
+            text-decoration: underline !important;
+            color: #A8592B;
+        }
+        .banner {
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .subscription-form {
+                background-color: #0F0E0D;
+                padding: 50px;
+                border-radius: 50px;
+                color: white;
+                text-align: center;
+                max-width: 600px;
+                width: 100%;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+                }
+                .subscription-form h2 {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+                .subscription-form p {
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                }
+                .subscription-form input[type="email"] {
+                    padding: 10px;
+                    border-radius: 20px 0 0 20px;
+                    border: none;
+                }
+                .subscription-form button {
+                    background-color: #E56812;
+                    border: none;
+                    padding: 10px;
+                    border-radius: 0 20px 20px 0;
+                }
+                .subscription-form button i {
+                    color: white;
+                }
+                .subscription-form small {
+                    display: block;
+                    margin-top: 10px;
+                    color: #ccc;
+                }
+                .subscription-form small a {
+                    color: #ccc;
+                    text-decoration: underline;
+                }
+        .footer-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .footer-nav .nav-item {
+            list-style: none;
+            margin: 0 10px;
+        }
+        .footer-nav .nav-link {
+            text-decoration: none;
+            color: #6c757d;
+        }
+        .footer-nav .nav-link:hover {
+            color: #000;
+        }
+        .footer-text {
+            text-align: center;
+            color: #6c757d;
+        }
+        .contact-btn {
+            background-color: #E56812;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .contact-btn:hover {
+            background-color: #A8592B;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid p-0">
+        {% include 'nav.html' %}
+        <div class="banner">
+        {% include 'banner.html' %}
+        </div></br>
+        <div class="container">
+            <div class="text" id="text">
+                <h1> Hi there, I am Malavica,I love to read & I love Data</h1></br>
+           
+                    <h2>Why Stay Updated with Tech Trends?</h2></br>
+                       <p> In today's age of information overload, it's challenging to discern the truth from the noise. As Mark Twain wisely said, "If you don't read the newspaper, you're uninformed. If you do read the newspaper, you're misinformed." This is especially true in our AI-driven world. To read and stay updated, you need a lot of resources that tie directly to practical use cases. My mission is to help you and myself stay informed and gain in-depth knowledge of relevant and reliable tech news, fostering mutual understanding and clarity. </p> </br>
+
+                     <h2>What Can You Find Here?</h2></br>
+                     <ul>
+                         <li>Tech News & Updates</li>
+                         <li>In-Depth Reviews</li>
+                         <li>Automated Templates</li>
+                         <li>Practical Tips</li>
+                         <li>Portfolio Ideas</li>
+                     </ul></br>
+
+
+                        <h2>How Will This Blog Make Difference?</h2></br>
+                        By sifting through the vast sea of information, I bring you insights that are not only informative but also trustworthy. My goal is to make technology accessible and understandable for everyone, whether you're a fellow tech lover, a professional in data science, or just someone curious about AI, data engineering, multitasking productivity, and portfolio development. All resources provided are tied directly to practical use cases to ensure you can apply what you learn effectively.
+                    </p></br>
+                <div class="container">
+                    <div class="card-custom">
+                        <h2>Articles</h2>
+                        <img src ="https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/Articles.png" alt="Placeholder Image">
+
+                        <a href="{{ url_for('article', article_id=1) }}" class="learn-more-link">Learn more&rarr;</a>
+                        
+                    </div>
+                    <div class="card-custom">
+                         <h2>Templates</h2>
+                        <img src="https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/Automated Templates.png" alt="Placeholder Image">
+
+                        <a href="{{ url_for('article', article_id=2) }}" class="learn-more-link">Learn more&rarr;</a>
+                    </div>
+                    <div class="card-custom">
+                         <h2>Project Ideas</h2>
+                        <img src="https://9e2319c5-e782-438e-a6ae-0688fe40309d-00-3ivapdw5on5f8.kirk.replit.dev/static/project.png" alt="Placeholder Image">
+
+                        <a href="{{ url_for('article', article_id=3) }}" class="learn-more-link">Learn more &rarr;</a>
+                    </div>
+                </div>
+
+
+         <div class="row justify-content-center mt-5">
+       <div class="col-md-4">
+           <div class="text-center">
+        {% include 'subscription.html' %}
+           </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+<div class="row justify-content-center mt-5">
+<div class="col-md-4">
+        <div class="text-center">
+            <a href="mailto:malavica.surakanti@gmail.com" class="contact-btn">Contact Me</a>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+     
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body></html>
+

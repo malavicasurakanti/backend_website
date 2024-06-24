@@ -1,0 +1,49 @@
+{% extends "home.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Articles Section -->
+        <div class="col-md-4">
+            <h2>Articles</h2>
+            {% for post in posts %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content | truncate(150) }}</p>
+                        <p class="card-text"><small class="text-muted">By {{ post.author.name }}</small></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Templates Section -->
+        <div class="col-md-4">
+            <h2>Templates</h2>
+            {% for post in posts %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content | truncate(150) }}</p>
+                        <p class="card-text"><small class="text-muted">By {{ post.author.name }}</small></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Portfolio Section -->
+        <div class="col-md-4">
+            <h2>Portfolio</h2>
+            {% for post in posts %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content | truncate(150) }}</p>
+                        <p class="card-text"><small class="text-muted">By {{ post.author.name }}</small></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
