@@ -105,4 +105,3 @@ if __name__ == '__main__':
         print(f"HYGRAPH_AUTH_TOKEN: {HYGRAPH_API_TOKEN}")
     app.run(debug=True)
 
-
