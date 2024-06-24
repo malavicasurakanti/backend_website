@@ -1,3 +1,4 @@
+import sitecustomize
 from flask import Flask, render_template, request, jsonify, flash
 from flask_mail import Mail, Message
 import graphene
@@ -6,6 +7,7 @@ from flask_graphql import GraphQLView
 import requests
 import os
 from dotenv import load_dotenv
+
 
 load_dotenv()
 
