@@ -6,4 +6,5 @@ Flask-Mail==0.9.1
 graphene==2.1.8
 graphql-core==2.3.2
 python-dotenv==0.19.2
-Flask-Graphene==2.0.0
+flask-graphql==2.0.1
+graphene==2.1.9
