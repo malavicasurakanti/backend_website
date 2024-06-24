@@ -7,12 +7,11 @@ import requests
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
 
+load_dotenv() 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Needed for flash messages
 
-# Mail configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
@@ -21,51 +20,22 @@ app.config['MAIL_PASSWORD'] = 'your_password'
 app.config['MAIL_DEFAULT_SENDER'] = 'your_email@gmail.com'
 
 mail = Mail(app)
-
 # Hygraph Endpoint and API Token
 HYGRAPH_API_URL = os.getenv('HYGRAPH_API')
 HYGRAPH_API_TOKEN = os.getenv('HYGRAPH_AUTH_TOKEN')
 
-def fetch_data(query):
-    response = requests.post(
-        HYGRAPH_API_URL,
-        json={'query': query},
-        headers={'Authorization': f'Bearer {HYGRAPH_API_TOKEN}'}
-    )
-    return response.json()
 
-class PostType(graphene.ObjectType):
-    id = graphene.ID()
-    title = graphene.String()
-    content = graphene.String()
-    author = graphene.String()
+from flask import Flask, render_template, jsonify
+import requests
+import os
+from dotenv import load_dotenv
 
-class Query(graphene.ObjectType):
-    all_posts = graphene.List(PostType)
+load_dotenv()  # Load environment variables from .env file
 
-    def resolve_all_posts(root, info):
-        query = """
-        {
-            posts {
-                id
-                title
-                content
-                author {
-                    name
-                }
-            }
-        }
-        """
-        data = fetch_data(query)
-        posts = data['data']['posts']
-        return [PostType(
-            id=post['id'],
-            title=post['title'],
-            content=post['content'],
-            author=post['author']['name']
-        ) for post in posts]
+app = Flask(__name__)
 
-schema = graphene.Schema(query=Query)
+HYGRAPH_API_URL = os.getenv('HYGRAPH_API')
+HYGRAPH_API_TOKEN = os.getenv('HYGRAPH_AUTH_TOKEN')
 
 @app.route('/')
 def home():
@@ -74,7 +44,7 @@ def home():
 @app.route('/blog')
 def blog():
     query = """
-    {
+    query {
         posts {
             id
             title
@@ -91,8 +61,12 @@ def blog():
         data = response.json()
         if 'data' in data:
             return render_template('blog.html', posts=data['data']['posts'])
+        else:
+            print("Error: Unexpected response structure:", data)
+            return render_template('blog.html', error="Error fetching blog posts data.")
     except requests.exceptions.RequestException as e:
-        return render_template('blog.html', error="Error connecting to Hygraph API.")
+        print("Error connecting to Hygraph API:", e)
+        return render_template('blog.html', error="Error connecting to Hygraph API. Please check your network connection and API settings.")
 
 @app.route('/article/<int:article_id>')
 def article(article_id):
@@ -112,20 +86,22 @@ def article(article_id):
         response = requests.post(HYGRAPH_API_URL, json={'query': query, 'variables': variables}, headers={'Authorization': f'Bearer {HYGRAPH_API_TOKEN}'})
         response.raise_for_status()  # Raise HTTPError for bad responses
         data = response.json()
+        print("Response from Hygraph:", data)  # Print the response for debugging
         if 'data' in data and 'post' in data['data']:
             article = data['data']['post']
             return render_template('article.html', article=article)
+        else:
+            print("Error: Unexpected response structure:", data)
+            return render_template('article.html', error="Article not found or API response error.")
     except requests.exceptions.RequestException as e:
-        return render_template('article.html', error="Error connecting to Hygraph API.")
-
-app.add_url_rule(
-    '/graphql',
-    view_func=GraphQLView.as_view(
-        'graphql',
-        schema=schema,
-        graphiql=True  # Enable GraphiQL interface
-    )
-)
+        print("Error connecting to Hygraph API:", e)
+        return render_template('article.html', error="Error connecting to Hygraph API. Please check your network connection and API settings.")
 
 if __name__ == '__main__':
+    if not HYGRAPH_API_URL or not HYGRAPH_API_TOKEN:
+        print("Error: HYGRAPH_API and HYGRAPH_AUTH_TOKEN environment variables are not set.")
+    else:
+        print(f"HYGRAPH_API: {HYGRAPH_API_URL}")
+        print(f"HYGRAPH_AUTH_TOKEN: {HYGRAPH_API_TOKEN}")
     app.run(debug=True)
+
