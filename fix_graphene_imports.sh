@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Function to update import statements in a file
@@ -14,11 +13,10 @@ update_imports() {
 }
 
 # Update graphene types/field.py
-FIELD_FILE_PATH="$(pip show graphene | grep Location | cut -d' ' -f2)/graphene/types/field.py"
+FIELD_FILE_PATH="/home/runner/backendwebsite-1/.pythonlibs/lib/python3.10/site-packages/graphene/types/field.py"
 update_imports "$FIELD_FILE_PATH"
 
 # Update graphene relay/connection.py
-CONNECTION_FILE_PATH="$(pip show graphene | grep Location | cut -d' ' -f2)/graphene/relay/connection.py"
+CONNECTION_FILE_PATH="/home/runner/backendwebsite-1/.pythonlibs/lib/python3.10/site-packages/graphene/relay/connection.py"
 update_imports "$CONNECTION_FILE_PATH"
 
-y

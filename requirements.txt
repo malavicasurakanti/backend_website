@@ -8,3 +8,4 @@ graphql-core==2.3.2
 python-dotenv==0.19.2
 Flask-GraphQL==2.0.1
 Werkzeug==2.0.3
+
